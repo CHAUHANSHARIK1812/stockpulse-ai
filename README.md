@@ -1,18 +1,16 @@
-```markdown
 <div align="center">
 
 # 📈 StockPulse AI
-### *Real-Time News-Driven Stock Market Index & Sentiment Intelligence*
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+### *AI-Powered Stock Monitoring, News Analysis & Market Intelligence*
 
-*An advanced artificial intelligence platform combining Deep Learning (LSTM & Feed-Forward Neural Networks) with Natural Language Processing (NLP) to predict stock market trends from financial news streams and quantitative indicators.*
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge\&logo=python\&logoColor=white)](https://www.python.org/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/CHAUHANSHARIK1812/stockpulse-ai)
+[![Status](https://img.shields.io/badge/Project-Active-success?style=for-the-badge)](https://github.com/CHAUHANSHARIK1812/stockpulse-ai)
 
-[Key Features](#-key-features) • [System Architecture](#-system-architecture) • [Getting Started](#-getting-started) • [Model Pipeline](#-model-pipeline) • [Project Structure](#-project-structure) • [Contributing](#-contributing)
+**StockPulse AI** is a Python-based stock market monitoring and analysis platform that combines market data, financial news, and AI-assisted analysis through a web-based dashboard.
+
+[Features](#-key-features) • [Architecture](#-system-overview) • [Tech Stack](#-technology-stack) • [Installation](#-getting-started) • [Project Structure](#-project-structure) • [Future Scope](#-future-scope)
 
 </div>
 
@@ -20,171 +18,206 @@
 
 ## 🌟 Overview
 
-**StockPulse AI** bridges the gap between quantitative market data and qualitative news sentiment. Standard quantitative algorithms often miss sudden market reactions driven by breaking news, earning reports, or geopolitical events. 
+StockPulse AI was developed to bring different parts of stock market analysis into one place.
 
-StockPulse AI ingests live financial news feeds, processes sentiment scores through NLP models, feeds technical indicators into **LSTM (Long Short-Term Memory)** networks, and yields real-time market trend predictions.
+The application focuses on **stock monitoring, financial news, data analysis, and AI-assisted insights**. Instead of checking different sources separately, users can use the dashboard to view and work with stock-related information from a single application.
 
-
-```
-
-```
-   [ Live News Data ] ---> [ NLP Sentiment Engine ] ──┐
-                                                       ├──> [ LSTM + Deep NN Engine ] ---> 📈 Market Trend & Index Prediction
-
-```
-
-[ Quantitative Market Data ] -> [ Feature Engineering  ] ──┘
-
-```
+The project is built with a modular Python structure, making it easier to extend the system with additional data sources, analysis methods, AI providers, and monitoring features.
 
 ---
 
 ## 🔥 Key Features
 
-- **📰 Real-Time Financial News Parsing**: Scrapes and analyzes incoming financial news headlines and articles via live API streams.
-- **🧠 Natural Language Processing & Sentiment Scoring**: Quantifies market sentiment (Bullish, Bearish, Neutral) using fine-tuned NLP pipelines.
-- **📊 LSTM Sequential Time-Series Modeling**: Models temporal dependencies and technical stock indicators (RMA, MACD, Bollinger Bands, Volume) to track price movements.
-- **⚡ Dual-Input Hybrid Neural Architecture**: Seamlessly merges numerical time-series vectors with textual sentiment embedding vectors.
-- **🛡️ Risk Assessment & Volatility Alerts**: Detects sudden sentiment anomalies and warns against high-volatility trading windows.
-- **🔌 RESTful API Integration**: Built with high-performance FastAPI endpoints for easy integration with web dashboards or trading bots.
+* 📊 **Stock Monitoring**
+  Monitor stock-related information and market data through the application.
+
+* 📰 **Financial News Analysis**
+  Work with stock-related news and use it as an additional source of market information.
+
+* 🤖 **AI-Assisted Analysis**
+  Integrates AI providers to generate useful analysis and insights from available information.
+
+* 📈 **Market Data Analysis**
+  Processes stock information to help understand market movements and trends.
+
+* 🖥️ **Interactive Dashboard**
+  Provides a web-based interface for viewing stock and analysis-related information.
+
+* ⚙️ **Settings Management**
+  Centralized configuration and settings management for the application.
+
+* 🔧 **Modular Design**
+  Separate modules for stock management, monitoring, AI analysis, and dashboard functionality.
 
 ---
 
-## 🏗 System Architecture
+## 🏗️ System Overview
 
-```mermaid
-graph TD
-    A[Financial News APIs / RSS] -->|Raw Headlines| B(NLP Sentiment Analyzer)
-    C[Yahoo Finance / AlphaVantage] -->|Historical OHLCV| D(Feature Engineering)
-    
-    B -->|Sentiment Vector| E[Hybrid Feature Fusion]
-    D -->|Technical Indicators| E
-    
-    E -->|Sequence Data| F[LSTM & Feed-Forward Neural Network]
-    F -->|Inference| G[Trend & Price Index Prediction]
-    
-    G --> H[FastAPI Gateway]
-    H --> I[Web UI / Trading Dashboard]
-
+```text
+                    ┌──────────────────────┐
+                    │    Market Data       │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Stock Monitoring   │
+                    └──────────┬───────────┘
+                               │
+              ┌────────────────┴────────────────┐
+              │                                 │
+              ▼                                 ▼
+    ┌──────────────────┐             ┌──────────────────┐
+    │ Financial News   │             │ Stock Management │
+    └────────┬─────────┘             └────────┬─────────┘
+             │                                │
+             └───────────────┬────────────────┘
+                             ▼
+                    ┌──────────────────────┐
+                    │    AI Analytics      │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │      Dashboard       │
+                    └──────────────────────┘
 ```
 
+The application collects and manages stock-related information, processes the available data through analysis modules, and presents the results through the dashboard.
+
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
-| Domain | Technologies Used |
-| --- | --- |
-| **Language** | Python 3.10+ |
-| **Deep Learning** | TensorFlow / Keras, PyTorch, Scikit-Learn |
-| **NLP & Sentiment** | HuggingFace Transformers, NLTK, VADER, TextBlob |
-| **Data Processing** | Pandas, NumPy, YFinance, TA-Lib |
-| **Backend & API** | FastAPI, Uvicorn, Pydantic |
-| **Visualization** | Plotly, Matplotlib, Seaborn |
+| Category                  | Technologies                                    |
+| ------------------------- | ----------------------------------------------- |
+| **Programming Language**  | Python                                          |
+| **Frontend**              | HTML, CSS                                       |
+| **Backend / Application** | Python                                          |
+| **AI & Analysis**         | AI Provider Integration, Python-based Analytics |
+| **Financial Data**        | Stock Market Data Sources                       |
+| **News Data**             | Financial / Stock News Sources                  |
+| **Database**              | SQLite                                          |
+| **Version Control**       | Git, GitHub                                     |
 
 ---
 
 ## 🚀 Getting Started
 
-Follow these steps to set up and run **StockPulse AI** locally on your machine.
+Follow the steps below to run StockPulse AI locally.
 
 ### Prerequisites
 
-* Python `3.10` or higher
+Make sure you have the following installed:
+
+* Python 3.x
 * Git
-* `pip` package manager
+* pip
 
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/CHAUHANSHARIK1812/stockpulse-ai.git](https://github.com/CHAUHANSHARIK1812/stockpulse-ai.git)
-cd stockpulse-ai
+git clone https://github.com/CHAUHANSHARIK1812/stockpulse-ai.git
+```
 
+Move into the project directory:
+
+```bash
+cd stockpulse-ai
 ```
 
 ### 2. Create a Virtual Environment
 
+On Windows:
+
 ```bash
-# On macOS / Linux
-python3 -m venv venv
-source venv/bin/activate
-
-# On Windows
 python -m venv venv
-venv\Scripts\activate
+```
 
+Activate the environment:
+
+```bash
+venv\Scripts\activate
 ```
 
 ### 3. Install Dependencies
 
+Install the required Python packages:
+
 ```bash
 pip install -r requirements.txt
-
 ```
 
-### 4. Configure Environment Variables
+> If `requirements.txt` is not yet available in the repository, add the dependencies used by the project before sharing the project with other developers.
 
-Create a `.env` file in the root directory:
+### 4. Configure the Application
 
-```env
-# News & Financial API Keys
-NEWS_API_KEY=your_news_api_key_here
-ALPHA_VANTAGE_KEY=your_alpha_vantage_key_here
+If your configuration requires API keys or other credentials, keep them outside the source code.
 
-# App Configurations
-MODEL_PATH=models/stockpulse_lstm.h5
-BATCH_SIZE=32
-EPOCHS=50
-LOG_LEVEL=INFO
+For example:
 
+```text
+API_KEY=your_api_key
 ```
+
+Never upload private API keys, passwords, tokens, or other sensitive credentials to GitHub.
 
 ---
 
-## 💻 Usage
+## 💻 Running the Application
 
-### Running Model Training
-
-To train the hybrid LSTM and sentiment model on historical stock index data and news archives:
+Start the dashboard using the project's main dashboard file:
 
 ```bash
-python src/train.py --symbol AAPL --epochs 50 --batch_size 32
-
+python dashboard.py
 ```
 
-### Evaluating Predictions
-
-To generate price and sentiment index reports for a specific ticker:
-
-```bash
-python src/predict.py --symbol AAPL --days 30
-
-```
-
-### Launching the REST API Server
-
-Start the local FastAPI application server:
-
-```bash
-uvicorn app.main:app --reload --port 8000
-
-```
-
-*Navigate to `http://localhost:8000/docs` in your browser to inspect the interactive Swagger API documentation.*
+Depending on the local configuration, the application may provide a local web address that can be opened in a browser.
 
 ---
 
-## 🧠 Model Pipeline Details
+## 🧠 Main Components
 
-1. **Preprocessing**: Cleans raw news strings (stopwords removal, lemmatization) and normalizes stock metrics using `MinMaxScaler`.
-2. **Sentiment Extraction**: Extracts compound polarity scores from news batches across custom lookback windows.
-3. **Sequence Creation**: Formulates sliding 60-day sequence windows containing both price vectors and sentiment scalars.
-4. **LSTM Neural Core**:
-* **Layer 1**: 128 LSTM units with Dropout ($0.2$)
-* **Layer 2**: 64 LSTM units with Dropout ($0.2$)
-* **Dense Fusion**: Combines sequential output with feed-forward sentiment dense layers.
-* **Output Layer**: Predicts target stock index / price shift direction.
+### AI Analytics
 
+`ai_analytics.py`
 
+Responsible for the analysis functionality used by StockPulse AI.
+
+### AI Providers
+
+`ai_providers.py`
+
+Handles communication with the AI provider layer used by the application.
+
+### Dashboard
+
+`dashboard.py`
+
+Provides the main application and dashboard functionality.
+
+### Stock Manager
+
+`stock_manager.py`
+
+Handles stock-related management and operations.
+
+### Stock Monitor
+
+`stock_monitor.py`
+
+Provides the core stock monitoring functionality.
+
+### Enhanced Stock Monitor
+
+`stock_monitor_enhanced.py`
+
+Provides additional monitoring capabilities beyond the basic monitoring module.
+
+### Settings Manager
+
+`settings_manager.py`
+
+Handles application settings and configuration.
 
 ---
 
@@ -192,53 +225,132 @@ uvicorn app.main:app --reload --port 8000
 
 ```text
 stockpulse-ai/
-├── data/                  # Historical price & news sentiment datasets
-├── notebooks/             # Exploratory Data Analysis (EDA) & experimentation
-├── models/                # Saved model checkpoints and weights
-├── src/                   # Core source code
-│   ├── data_loader.py     # Stock & news data fetching modules
-│   ├── preprocessing.py   # Text cleaning & indicator engineering
-│   ├── sentiment.py       # NLP sentiment score engines
-│   ├── model.py           # Deep Learning network architectures
-│   └── train.py           # Training pipelines & metrics logging
-├── app/                   # FastAPI deployment web server
-│   ├── main.py            # API entry point & routes
-│   └── schema.py          # Input/output Pydantic models
-├── tests/                 # Unit and integration tests
-├── .env.example           # Example environment file
-├── requirements.txt       # Python package dependencies
-├── LICENSE                # Open-source license
-└── README.md              # Project documentation
-
+│
+├── templates/
+│   └── dashboard.html
+│
+├── ai_analytics.py
+├── ai_providers.py
+├── dashboard.py
+├── settings_manager.py
+├── stock_manager.py
+├── stock_monitor.py
+├── stock_monitor_enhanced.py
+│
+├── run.txt
+├── .gitignore
+└── README.md
 ```
 
 ---
 
-## 📈 Performance & Results
+## 🔄 Application Flow
 
-* **Directional Accuracy**: Achieves high precision on trend direction over multi-day windows when market-moving news events occur.
-* **RMSE Improvement**: Incorporating live sentiment vectors reduces Root Mean Square Error (RMSE) compared to price-only LSTM baselines.
+```text
+       Stock / Market Information
+                  │
+                  ▼
+        ┌───────────────────┐
+        │  Stock Monitoring │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │  Data Management  │
+        └─────────┬─────────┘
+                  │
+          ┌───────┴───────┐
+          │               │
+          ▼               ▼
+   Financial News     Market Data
+          │               │
+          └───────┬───────┘
+                  ▼
+        ┌───────────────────┐
+        │   AI Analytics    │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │     Dashboard     │
+        └───────────────────┘
+```
 
 ---
 
-## 🤝 Contributing
+## 📸 Dashboard
 
-Contributions are welcome! If you have suggestions or improvements:
+Screenshots of the application can be added here to show the main interface and analysis features.
 
-1. **Fork** the Repository
-2. **Create** a Feature Branch (`git checkout -b feature/AwesomeFeature`)
-3. **Commit** your Changes (`git commit -m 'Add AwesomeFeature'`)
-4. **Push** to the Branch (`git push origin feature/AwesomeFeature`)
-5. **Open** a Pull Request
+Example:
+
+```text
+docs/
+├── dashboard.png
+├── stock-monitor.png
+└── analysis.png
+```
+
+Then add them to this README using:
+
+```markdown
+![StockPulse AI Dashboard](docs/dashboard.png)
+```
 
 ---
 
-## 📄 License
+## 🎯 Project Goals
 
-Distributed under the **MIT License**. See [`LICENSE`](https://www.google.com/search?q=LICENSE) for details.
+The main goals of StockPulse AI are:
+
+* Bring stock monitoring and analysis into one application.
+* Combine market information with financial news.
+* Explore practical applications of AI in financial technology.
+* Build a modular and extendable Python application.
+* Provide a simple dashboard for interacting with the system.
 
 ---
 
-*Developed with ❤️ by [Sharik Chauhan*](https://www.google.com/search?q=https://github.com/CHAUHANSHARIK1812)
+## 🔮 Future Scope
 
-⭐ **If you find this project useful, please consider giving it a star!** ⭐
+The project can be extended with several additional capabilities:
+
+* 📈 Advanced stock prediction models
+* 🧠 Improved news sentiment analysis
+* 📊 Technical indicators and charting
+* 🔔 Price and market alerts
+* 💼 Portfolio management
+* 👤 User authentication
+* ☁️ Cloud deployment
+* 📱 Responsive/mobile-friendly dashboard
+* 📑 Automated market reports
+* 🔗 Additional financial data providers
+
+---
+
+## ⚠️ Disclaimer
+
+StockPulse AI is developed for **educational, experimental, and software-development purposes**.
+
+The analysis or information produced by the application should **not be considered financial advice**. Users should perform their own research before making any investment decisions.
+
+---
+
+## 👨‍💻 Author
+
+### Sharik Chauhan
+
+Computer Engineering Student & Developer
+
+GitHub:
+https://github.com/CHAUHANSHARIK1812
+
+---
+
+<div align="center">
+
+### ⭐ If you find StockPulse AI interesting, consider giving the repository a star!
+
+**Built with Python, AI, and a passion for financial technology.**
+
+</div>
